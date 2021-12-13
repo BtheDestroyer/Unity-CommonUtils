@@ -1,0 +1,16 @@
+{
+    "name": "BryceDixon.CommonUtils.Examples",
+    "rootNamespace": "BryceDixon.CommonUtils.Examples",
+    "references": [
+        "GUID:46b9a7e8208b5794b820b5305086a308"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
