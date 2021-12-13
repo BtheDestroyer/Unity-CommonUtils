@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="bryce-dixons-commonutils">Bryce Dixon's CommonUtils</h1>
+<p>CommonUtils is a collection of common utility scripts I use across my projects and other packages.</p>
+<h2 id="installation-and-setup">Installation and Setup</h2>
+<p>The package will be available on the Unity Asset Store.</p>
+<p>When using classes from these scripts in your projects, I would highly recommend <em>not</em> including the <code>BryceDixon.CommonUtils</code> namesapce and instead only including the <code>BryceDixon</code> namespace (unless otherwise stated) as some classes may share names with commonly used classes and namespaces within the <code>UnityEngine</code> namespace.</p>
+<p><strong>Note</strong>: This package depends on Denis Rizov's NaughtyAttributes package which can be found on the <a href="https://assetstore.unity.com/packages/tools/utilities/naughtyattributes-129996">Unity Asset Store</a>.</p>
+<h1 id="usage-overview">Usage Overview</h1>
+<p>All included code is thoroughly commented and descriptions for each class and method can be found by hovering over them in most IDEs (only confirmed in Visual Studio 2019), so this section will function mostly as a quick-start guide.</p>
+<p>For more detail on any section, class, or method, read the comments provided directly above it in the code.</p>
+<h2 id="animatorextensions">AnimatorExtensions</h2>
+<p>This class resides in the <code>BryceDixon.CommonUtils.Extensions</code> namespace which should be included in your script for it to function properly.</p>
+<p>AnimatorExtensions adds a few methods to make interfacing with parameters of the UnityEngine.Animator class easier. Primarily, they allow for more generic Animator interfacing code by only attempting to set a parameter of the Animator if one exists with that name.</p>
+<ul>
+<li><code>Animator.TrySetParameter(string name, [float, bool, int] value)</code> works as a generic alternative to most of the extension methods in this class.
+<ul>
+<li>I'd highly recommend <em>just</em> using this one unless you want to be more explicit.</li>
+</ul>
+</li>
+<li><code>Animator.TrySet{Type}(string name, {Type} value)</code> is the main family of extension methods in the class including the following:
+<ul>
+<li><code>Animator.TrySetFloat(string name, float value)</code></li>
+<li><code>Animator.TrySetBool(string name, bool value)</code></li>
+<li><code>Animator.TrySetInteger(string name, int value)</code></li>
+</ul>
+</li>
+<li><code>Animator.TrySetTrigger(string name)</code> and <code>Animator.TryResetTrigger(string name)</code> will call <code>Animator.SetTrigger(name)</code> and <code>Animator.ResetTrigger(name)</code></li>
+</ul>
+<h2 id="gizmo">Gizmo</h2>
+<p>Gizmo is an abstract base class for creating simple components for drawing UnityEngine.Gizmos.</p>
+<p>To create your own, inherit from this base class and implement the <code>DrawShape()</code> method.</p>
+<p>Existing derived classes include the following:</p>
+<ul>
+<li>Gizmo_Cube</li>
+<li>Gizmo_Frustum</li>
+<li>Gizmo_Line</li>
+<li>Gizmo_Sphere</li>
+<li>Gizmo_TransformLine</li>
+<li>Gizmo_WireCube</li>
+<li>Gizmo_WireSphere</li>
+</ul>
+<h2 id="safeget">SafeGet</h2>
+<h3 id="safecomponent">SafeComponent</h3>
+<p>This acts as a wrapper around <code>GameObject.GetComponent</code> which adds cache. Its use is intended to solve two failures of traditional use of <code>GameObject.GetComponent</code> where either:</p>
+<ol>
+<li><code>GameObject.GetComponent</code> is used throughout code frequently, which leads to poor performance; or</li>
+<li><code>GameObject.GetComponent</code> is only used during initialization with the result cached, which can lead to a stale state if the cached Component is destroyed or intended target is created after the call to <code>GameObject.GetComponent</code></li>
+</ol>
+<h3 id="safecomponents">SafeComponents</h3>
+<p>Achieves the same goals as SafeComponent, but gets/caches <em>all</em> components of a given type on the owning object.</p>
+<p>Note that SafeComponents will only attempt to find more components if its cache is empty, so a different solution must be used if you're intending to repeatedly create/destroy components.</p>
+<h3 id="safefindobject">SafeFindObject</h3>
+<p>Achieves the same goals as SafeComponent, but wraps around <code>Object.FindObjectsOfType</code> instead of <code>GameObject.GetComponent</code>.</p>
+<h3 id="safefindobjects">SafeFindObjects</h3>
+<p>Achieves the same goals as SafeComponent, but wraps around <code>Object.FindObjectsOfTypes</code> instead of <code>GameObject.GetComponent</code>.</p>
+<p>This suffers from the same shortcomings of SafeComponents, specifically regarding its laziness in finding new objects if it still has existing objects cached.</p>
+<h2 id="schmitttrigger">SchmittTrigger</h2>
+<p>Threshhold based float to boolean converter based on the <a href="https://en.wikipedia.org/wiki/Schmitt_trigger">Schmitt trigger</a> electronic component.</p>
+<p>SchmittTriggers can be useful for preventing rapid on-off cycling when conditions are near their change threshhold</p>
+<p>For example, if we check an analogue trigger against an exact value like this: <code>if (Input.GetAxis(&quot;Horizontal&quot;) &gt; 0.5f)</code></p>
+<p>That could cause a rapid switching between true and false if the player were to hold the stick near 0.5f. Instead, we can make a SchmittTrigger to provide some buffered range to the tested input</p>
+<p>This can also be useful for testing object positions, distances, etc. For example, we could make an AI that becomes agressive when the player is within 5 units, but only becomes passive again once they're more than 10 units away.</p>
+<p>A SchmittTrigger will automatically be converted to a bool when attempting to evaluate it as a conditional.</p>
+<h2 id="settings">Settings</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</a> base class inteded for creating <code>UnityEngine.ScriptableObject</code>s for developers to store settings about their project and systems.</p>
+<p>For example, the CommonUtils Loading system uses a Settings class called LoadingSettings to store which scene should be used as a loading screen.</p>
+<p>Another example could be creating a derived class for exposing a list of variables that can be modified by systems designers; eg: character jump height, movement speed, etc.</p>
+<p>Here's a bare-bones example of how to create your own Settings class:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> BryceDixon;
+
+[<span class="hljs-meta">SettingsPath(<span class="hljs-meta-string">"Settings/Movement"</span>)</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MovementSettings</span> : <span class="hljs-title">CommonUtil</span>.<span class="hljs-title">Settings</span>&lt;<span class="hljs-title">MovementSettings</span>&gt;
+{
+  [<span class="hljs-meta">SerializeField</span>]
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> m_jumpHeight;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> jumpHeight { <span class="hljs-keyword">get</span> =&gt; m_jumpHeight; }
+  [<span class="hljs-meta">SerializeField</span>]
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> m_moveSpeed;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> moveSpeed { <span class="hljs-keyword">get</span> =&gt; m_moveSpeed; }
+  
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> UNITY_EDITOR</span>
+  [<span class="hljs-meta">UnityEditor.MenuItem(<span class="hljs-meta-string">"CommonUtils/Settings/Create Movement Screen Settings"</span>, priority = 1)</span>]
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> new <span class="hljs-keyword">void</span> <span class="hljs-title">CreateSettings</span>(<span class="hljs-params"></span>)</span>
+  {
+    CommonUtil.Settings&lt;MovementSettings&gt;.CreateSettings();
+  }
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+}
+</div></code></pre>
+<p>Elsewhere, we can retrieve that data using <code>MovementSettings.GetSettings()</code>. Eg: <code>MovementSettings.GetSettings().moveSpeed</code> to get the set movement speed</p>
+<h2 id="singleton">Singleton</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</a> base class inteded for creating <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singletons</a>. Deriving from this is a way to effectively have static data while also benefitting from Unity's <code>MonoBehaviour</code> methods (eg: <code>Start</code>, <code>Update</code>, etc.)</p>
+<p>You should <em>not</em> put your singleton scripts on objects; their instances will be created automatically for you the first time you use it. For example:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> BryceDixon;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SystemController</span> : <span class="hljs-title">Singleton</span>&lt;<span class="hljs-title">SystemController</span>&gt;
+{
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> m_val;
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+  {
+    <span class="hljs-comment">// Do something with m_val</span>
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SomeObject</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+  {
+    <span class="hljs-comment">// This will create an instance of SystemController the first time it's called</span>
+    SystemController.Get().m_val = <span class="hljs-number">5</span>;
+  }
+}
+</div></code></pre>
+<h2 id="timer">Timer</h2>
+<p>Class used for in-place timing operations. Timers are identified by their stacktrace, so we need to provide an extra value in certain situations to get unique Timers.</p>
+<pre class="hljs"><code><div>  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+  {
+    <span class="hljs-comment">// Timers are an easy way of creating repeatable events without any initialization</span>
+    <span class="hljs-comment">// This conditional will be true every 10 seconds</span>
+    <span class="hljs-keyword">if</span> (Timer.Every(<span class="hljs-number">10.0f</span>))
+    {
+      Debug.Log(<span class="hljs-string">"10 seconds have passed!"</span>);
+    }
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; ++i)
+    {
+      <span class="hljs-keyword">float</span> time = <span class="hljs-number">1.0f</span> * i;
+      <span class="hljs-keyword">if</span> (Timer.Every(time, (<span class="hljs-keyword">ulong</span>)i))
+      {
+        Debug.Log(time + <span class="hljs-string">" second(s) have passed!"</span>);
+      }
+    }
+  }
+</div></code></pre>
+<h2 id="version">Version</h2>
+<p>Simple semantic versioning struct. Useful for distinguishing builds.</p>
+<pre class="hljs"><code><div>(<span class="hljs-keyword">new</span> Version(<span class="hljs-number">5</span>)).ToString(); <span class="hljs-comment">// "5.0.0"</span>
+(<span class="hljs-keyword">new</span> Version(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>)).ToString(); <span class="hljs-comment">// "2.1.0"</span>
+(<span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">21</span>)).ToString(); <span class="hljs-comment">// "1.4.21"</span>
+(<span class="hljs-keyword">new</span> Version(Version.ReleaseType.Beta, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)).ToString(); <span class="hljs-comment">// "b 4.1.2"</span>
+
+<span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>) &gt;= <span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>) &gt;= <span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-keyword">new</span> Version(<span class="hljs-number">2</span>) &gt;= <span class="hljs-keyword">new</span> Version(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">new</span> Version(Version.ReleaseType.Beta, <span class="hljs-number">1</span>) &gt;= <span class="hljs-keyword">new</span> Version(Version.ReleaseType.Alpha, <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">new</span> Version(Version.ReleaseType.Beta, <span class="hljs-number">1</span>) &gt;= <span class="hljs-keyword">new</span> Version(Version.ReleaseType.Alpha, <span class="hljs-number">2</span>); <span class="hljs-comment">// false</span>
+</div></code></pre>
+<h2 id="loading">Loading</h2>
+<h3 id="loadingsettings">LoadingSettings</h3>
+<p>Some settings for the Loading system. To use the Loading system:</p>
+<ol>
+<li>Create the settings with the menu option: CommonUtils -&gt; Settings -&gt; Create Loading Screen Settings</li>
+<li>Add your &quot;Loading&quot; scene to the build</li>
+<li>Make sure there is exactly one object with the <code>BryceDixon.CommonUtils.SceneLoader</code> component in your &quot;Loading&quot; scene.</li>
+<li>Add another scene (for this example, I'll assume it's named &quot;MyScene&quot;) to the build</li>
+<li>Select the file <code>Assets/Resources/Settings/Loading</code></li>
+<li>Provide your &quot;Loading&quot; scene and a failsafe scene.</li>
+<li>The failsafe scene will be used if you try to load a scene that doesn't exist. I would recommend the title screen or a dedicated error scene.</li>
+<li>Use <code>BryceDixon.CommonUtils.SceneLoader.LoadScene(&quot;MyScene&quot;)</code> to load a scene through the &quot;Loading&quot; scene you set.</li>
+</ol>
+<h3 id="scene">Scene</h3>
+<p>A set of useful Scene-related methods.</p>
+<p><code>SceneExists(string name)</code> will tell you if a scene with the given name exists in the build.</p>
+<p><code>GetCurrentScene()</code> will get you the active scene. I mostly made this because I found the built-in call unreasonably long.</p>
+<h3 id="sceneloader">SceneLoader</h3>
+<p>This component has some functionality for easily loading other scenes. For example, you could make a button that calls <code>LoadScene()</code> on an attached <code>SceneLoader</code> to have it load the specified scene by name.</p>
+
+</body>
+</html>
